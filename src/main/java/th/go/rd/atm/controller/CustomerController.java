@@ -8,15 +8,15 @@ import java.util.ArrayList;
 @Controller
 public class CustomerController{
 
-    @RequestMapping("/Customer")
+    @RequestMapping("/Customer") //ชื่อ URL
     public String getCustomerPage(Model model) {
-        ArrayList<String> customers = new ArrayList<>();
-        customers.add("Peter");
-        customers.add("Nancy");
-        customers.add("Rick");
+        ArrayList<Customer> customers = new ArrayList<>();
+        customers.add(new Customer(1,"Peter","1234"));
+        customers.add(new Customer(2,"Nancy","2345"));
+        customers.add(new Customer(3,"Rick","3456"));;
 
         model.addAttribute("allCustomers", customers);
-        return "Customer";  //customer.html
+        return "Customer"; //ชื่อไฟล์ Customer.html
 
     }
 }
