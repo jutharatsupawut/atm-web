@@ -32,22 +32,22 @@ public class CustomerService {
         return repository.findAll();
   }
 
-     public Customer findCustomer(int id){
+     public Customer findCustomer(int id) {
 
-        try{
-            return repository.findById(id);
-        }   catch (EmptyResultDataAccessException e){
-            return null;
-        }
+         try {
+             return repository.findById(id);
+         } catch (EmptyResultDataAccessException e) {
+             return null;
+         }
+     }
 
       public Customer checkPin(Customer inputCustomer){
        Customer storedCustomer = findCustomer(inputCustomer.getId());
 
        if (storedCustomer != null){
            String hashPin = storedCustomer.getPin();
-              if (BCrypt.checkpw(inputCustomer.getPin(), hashPin))
+              if (BCrypt.checkpw(inputCustomer.getPin(), hashPin));
                   return storedCustomer;
-
       }
       return null;
 }
